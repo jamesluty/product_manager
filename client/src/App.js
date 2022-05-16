@@ -1,13 +1,14 @@
-import {Routes, Route, Link} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import './App.css';
-import Form from './Components/Form'
+import Home from './Components/Home'
+import View from './Components/View';
 
 function App() {
   return (
     <div className="App">
-      <Form/>
       <Routes>
-        <Route path="/form" element={<Form/>}/>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/:id" element={<View/>}/>
       </Routes>
     </div>
   );

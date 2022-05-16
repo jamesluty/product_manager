@@ -1,11 +1,11 @@
 .formWrapper {
     margin: auto;
-    width: 40%;
+    width: 400px;
     text-align: center;
 }
 
 .formInputs {
-    background-color: rgb(246,246,246);
+    background-color: gainsboro;
     border: 1px solid black;
     display: flex;
     margin-bottom: 10px;
@@ -19,6 +19,33 @@
 }
 
 .formInputs input {
-    flex: 2;
+    flex: 3;
     width: 50px;
+}
+
+.button {
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    font-size: 12pt;
+    padding: 5px 20px;
+}
+
+.line {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+/* View Component */
+.viewWrapper {
+    margin-top: 40px;
+}
+
+.productList {
+    list-style: none;
+}
+
+.span {
+    font-weight: bold;
 }
