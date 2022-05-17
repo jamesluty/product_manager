@@ -29,6 +29,7 @@
     color: white;
     font-size: 12pt;
     padding: 5px 20px;
+    margin-bottom: 10px;
 }
 
 .line {
@@ -43,9 +44,32 @@
 }
 
 .productList {
-    list-style: none;
+    margin: 0px;
+    text-align: center;
+}
+
+.productList1 {
+    flex: 1;
+    margin: 0px;
+    text-align: left;
 }
 
 .span {
     font-weight: bold;
+}
+
+.buttonWrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.listWrapper {
+    display: flex;
+    gap: 20px;
+    margin: auto;
+    width: 400px;
+    text-align: center;
 }

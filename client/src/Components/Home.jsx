@@ -1,19 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import styles from './styles.module.css'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Home = () => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
     const [products, setProducts] = useState([])
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/products")
             .then(res => setProducts(res.data.products))
             .catch(err => console.log(err))
-    })
+    }, [products])
 
     const addProduct = (e) => {
         e.preventDefault();
@@ -30,6 +31,16 @@ const Home = () => {
                 setPrice(0);
                 setDescription("");
             })
+            .catch(err => console.log(err))
+    }
+
+    const goToEdit = (id) => {
+        console.log(id)
+        navigate(`/${id}/edit`);
+    }
+
+    const deleteProduct = (id) => {
+        axios.delete(`http://localhost:8000/api/products/delete/${id}`)
             .catch(err => console.log(err))
     }
 
@@ -55,7 +66,15 @@ const Home = () => {
             <div>
                 <h1>All Products</h1>
                 {products.map((product) => {
-                    return <p className={styles.productList} key={product._id}><Link to={`/${product._id}`}>{product.title}</Link></p>
+                    return (
+                        <div className={styles.listWrapper}>
+                            <h2 className={styles.productList1} key={product._id}><Link to={`/${product._id}`}>{product.title}</Link></h2>
+                            <div className={styles.buttonWrapper}>
+                                <button className={styles.button} onClick={() => goToEdit(product._id)}>Edit</button>
+                                <button className={styles.button} onClick={() => deleteProduct(product._id)}>Delete</button>
+                            </div>
+                        </div>
+                    )
                 })}
             </div>
         </div>
