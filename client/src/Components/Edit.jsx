@@ -28,7 +28,7 @@ const Edit = () => {
             price,
             description
         }
-        axios.put(`http://localhost:8000/api/products/update/${id}`, updatedProduct)
+        axios.put(`http://localhost:8000/api/products/${id}`, updatedProduct)
             .then(() => navigate(`/${id}`))
             .catch(err => console.log(err))
     }

@@ -19,7 +19,7 @@ const View = () => {
     }
 
     const deleteProduct = () => {
-        axios.delete(`http://localhost:8000/api/products/delete/${id}`)
+        axios.delete(`http://localhost:8000/api/products/${id}`)
             .then(() => navigate("/"))
             .catch(err => console.log(err))
     }

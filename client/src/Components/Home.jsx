@@ -24,7 +24,7 @@ const Home = () => {
             description: description
         }
         console.log(newProduct)
-        axios.post("http://localhost:8000/api/products/new", newProduct)
+        axios.post("http://localhost:8000/api/products", newProduct)
             .then(res => console.log(res))
             .then( () => {
                 setTitle("");
@@ -40,7 +40,7 @@ const Home = () => {
     }
 
     const deleteProduct = (id) => {
-        axios.delete(`http://localhost:8000/api/products/delete/${id}`)
+        axios.delete(`http://localhost:8000/api/products/${id}`)
             .catch(err => console.log(err))
     }
 
