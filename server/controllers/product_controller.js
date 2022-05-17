@@ -7,7 +7,7 @@ module.exports.findAllProducts = (req, res) => {
 };
 
 module.exports.findOneProduct = (req, res) => {
-    Product.findOne({ _id: req.params.id })
+    Product.findById(req.params.id)
         .then(oneProduct => res.json({ product: oneProduct }))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 };
@@ -19,13 +19,13 @@ module.exports.createAProduct = (req, res) => {
 };
 
 module.exports.updateAProduct = (req, res) => {
-    Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
+    Product.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
         .then(updatedProduct => res.json({ product: updatedProduct }))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 };
 
 module.exports.deleteAProduct = (req, res) => {
-    Product.deleteOne({ _id: req.params.id })
+    Product.findByIdAndDelete(req.params.id)
         .then(result => res.json({ result: result }))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 };
